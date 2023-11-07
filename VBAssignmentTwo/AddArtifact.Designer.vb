@@ -22,38 +22,38 @@ Partial Class AddArtifact
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Label1 = New Label()
+        lblAddArtifact = New Label()
         Label2 = New Label()
         Label4 = New Label()
         Label6 = New Label()
         Label8 = New Label()
         PictureBox1 = New PictureBox()
-        TextBox1 = New TextBox()
-        TextBox2 = New TextBox()
-        TextBox3 = New TextBox()
-        TextBox4 = New TextBox()
-        Button1 = New Button()
-        Button2 = New Button()
-        Button3 = New Button()
-        Button4 = New Button()
-        Button5 = New Button()
+        txtID = New TextBox()
+        txtName = New TextBox()
+        txtOrgin = New TextBox()
+        txtHistory = New TextBox()
+        btnBrowse = New Button()
+        btnCancel = New Button()
+        btnDelete = New Button()
+        btnUpdate = New Button()
+        btnAdd = New Button()
         Label3 = New Label()
         Button6 = New Button()
-        Button7 = New Button()
+        btnCrop = New Button()
         DataGridView1 = New DataGridView()
         Button8 = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Label1
+        ' lblAddArtifact
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(12, 19)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(76, 15)
-        Label1.TabIndex = 0
-        Label1.Text = "Add Artifacts"
+        lblAddArtifact.AutoSize = True
+        lblAddArtifact.Location = New Point(12, 19)
+        lblAddArtifact.Name = "lblAddArtifact"
+        lblAddArtifact.Size = New Size(76, 15)
+        lblAddArtifact.TabIndex = 0
+        lblAddArtifact.Text = "Add Artifacts"
         ' 
         ' Label2
         ' 
@@ -96,82 +96,83 @@ Partial Class AddArtifact
         PictureBox1.Location = New Point(57, 237)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(231, 235)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 9
         PictureBox1.TabStop = False
         ' 
-        ' TextBox1
+        ' txtID
         ' 
-        TextBox1.Location = New Point(57, 57)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(310, 23)
-        TextBox1.TabIndex = 10
+        txtID.Location = New Point(57, 57)
+        txtID.Name = "txtID"
+        txtID.Size = New Size(310, 23)
+        txtID.TabIndex = 10
         ' 
-        ' TextBox2
+        ' txtName
         ' 
-        TextBox2.Location = New Point(57, 86)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(310, 23)
-        TextBox2.TabIndex = 11
+        txtName.Location = New Point(57, 86)
+        txtName.Name = "txtName"
+        txtName.Size = New Size(310, 23)
+        txtName.TabIndex = 11
         ' 
-        ' TextBox3
+        ' txtOrgin
         ' 
-        TextBox3.Location = New Point(57, 117)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(310, 23)
-        TextBox3.TabIndex = 12
+        txtOrgin.Location = New Point(57, 117)
+        txtOrgin.Name = "txtOrgin"
+        txtOrgin.Size = New Size(310, 23)
+        txtOrgin.TabIndex = 12
         ' 
-        ' TextBox4
+        ' txtHistory
         ' 
-        TextBox4.Location = New Point(57, 147)
-        TextBox4.Multiline = True
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(310, 84)
-        TextBox4.TabIndex = 13
+        txtHistory.Location = New Point(57, 147)
+        txtHistory.Multiline = True
+        txtHistory.Name = "txtHistory"
+        txtHistory.Size = New Size(310, 84)
+        txtHistory.TabIndex = 13
         ' 
-        ' Button1
+        ' btnBrowse
         ' 
-        Button1.Location = New Point(294, 237)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(73, 23)
-        Button1.TabIndex = 14
-        Button1.Text = "Browse"
-        Button1.UseVisualStyleBackColor = True
+        btnBrowse.Location = New Point(294, 237)
+        btnBrowse.Name = "btnBrowse"
+        btnBrowse.Size = New Size(73, 23)
+        btnBrowse.TabIndex = 14
+        btnBrowse.Text = "Browse"
+        btnBrowse.UseVisualStyleBackColor = True
         ' 
-        ' Button2
+        ' btnCancel
         ' 
-        Button2.Location = New Point(57, 478)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(73, 23)
-        Button2.TabIndex = 15
-        Button2.Text = "Cancel"
-        Button2.UseVisualStyleBackColor = True
+        btnCancel.Location = New Point(294, 478)
+        btnCancel.Name = "btnCancel"
+        btnCancel.Size = New Size(73, 23)
+        btnCancel.TabIndex = 20
+        btnCancel.Text = "Cancel"
+        btnCancel.UseVisualStyleBackColor = True
         ' 
-        ' Button3
+        ' btnDelete
         ' 
-        Button3.Location = New Point(136, 478)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(73, 23)
-        Button3.TabIndex = 16
-        Button3.Text = "Delete"
-        Button3.UseVisualStyleBackColor = True
+        btnDelete.Location = New Point(136, 478)
+        btnDelete.Name = "btnDelete"
+        btnDelete.Size = New Size(73, 23)
+        btnDelete.TabIndex = 18
+        btnDelete.Text = "Delete"
+        btnDelete.UseVisualStyleBackColor = True
         ' 
-        ' Button4
+        ' btnUpdate
         ' 
-        Button4.Location = New Point(215, 478)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(73, 23)
-        Button4.TabIndex = 17
-        Button4.Text = "Update"
-        Button4.UseVisualStyleBackColor = True
+        btnUpdate.Location = New Point(215, 478)
+        btnUpdate.Name = "btnUpdate"
+        btnUpdate.Size = New Size(73, 23)
+        btnUpdate.TabIndex = 19
+        btnUpdate.Text = "Update"
+        btnUpdate.UseVisualStyleBackColor = True
         ' 
-        ' Button5
+        ' btnAdd
         ' 
-        Button5.Location = New Point(294, 478)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(73, 23)
-        Button5.TabIndex = 18
-        Button5.Text = "Add"
-        Button5.UseVisualStyleBackColor = True
+        btnAdd.Location = New Point(57, 478)
+        btnAdd.Name = "btnAdd"
+        btnAdd.Size = New Size(73, 23)
+        btnAdd.TabIndex = 17
+        btnAdd.Text = "Add"
+        btnAdd.UseVisualStyleBackColor = True
         ' 
         ' Label3
         ' 
@@ -187,18 +188,21 @@ Partial Class AddArtifact
         Button6.Location = New Point(294, 295)
         Button6.Name = "Button6"
         Button6.Size = New Size(73, 23)
-        Button6.TabIndex = 20
+        Button6.TabIndex = 16
         Button6.Text = "Remove"
         Button6.UseVisualStyleBackColor = True
         ' 
-        ' Button7
+        ' btnCrop
         ' 
-        Button7.Location = New Point(294, 266)
-        Button7.Name = "Button7"
-        Button7.Size = New Size(73, 23)
-        Button7.TabIndex = 21
-        Button7.Text = "Crop"
-        Button7.UseVisualStyleBackColor = True
+        btnCrop.AccessibleDescription = "Not Inplimented yet"
+        btnCrop.AccessibleName = "Crop"
+        btnCrop.Enabled = False
+        btnCrop.Location = New Point(294, 266)
+        btnCrop.Name = "btnCrop"
+        btnCrop.Size = New Size(73, 23)
+        btnCrop.TabIndex = 15
+        btnCrop.Text = "Crop"
+        btnCrop.UseVisualStyleBackColor = True
         ' 
         ' DataGridView1
         ' 
@@ -224,24 +228,24 @@ Partial Class AddArtifact
         ClientSize = New Size(738, 542)
         Controls.Add(Button8)
         Controls.Add(DataGridView1)
-        Controls.Add(Button7)
+        Controls.Add(btnCrop)
         Controls.Add(Button6)
         Controls.Add(Label3)
-        Controls.Add(Button5)
-        Controls.Add(Button4)
-        Controls.Add(Button3)
-        Controls.Add(Button2)
-        Controls.Add(Button1)
-        Controls.Add(TextBox4)
-        Controls.Add(TextBox3)
-        Controls.Add(TextBox2)
-        Controls.Add(TextBox1)
+        Controls.Add(btnAdd)
+        Controls.Add(btnUpdate)
+        Controls.Add(btnDelete)
+        Controls.Add(btnCancel)
+        Controls.Add(btnBrowse)
+        Controls.Add(txtHistory)
+        Controls.Add(txtOrgin)
+        Controls.Add(txtName)
+        Controls.Add(txtID)
         Controls.Add(PictureBox1)
         Controls.Add(Label8)
         Controls.Add(Label6)
         Controls.Add(Label4)
         Controls.Add(Label2)
-        Controls.Add(Label1)
+        Controls.Add(lblAddArtifact)
         Name = "AddArtifact"
         Text = "Form1"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
@@ -250,24 +254,24 @@ Partial Class AddArtifact
         PerformLayout()
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblAddArtifact As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents txtID As TextBox
+    Friend WithEvents txtName As TextBox
+    Friend WithEvents txtOrgin As TextBox
+    Friend WithEvents txtHistory As TextBox
+    Friend WithEvents btnBrowse As Button
+    Friend WithEvents btnCancel As Button
+    Friend WithEvents btnDelete As Button
+    Friend WithEvents btnUpdate As Button
+    Friend WithEvents btnAdd As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
+    Friend WithEvents btnCrop As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button8 As Button
 End Class

@@ -25,9 +25,9 @@ Partial Class App
         btnLogin = New Button()
         Button1 = New Button()
         Button2 = New Button()
-        Button3 = New Button()
-        Button4 = New Button()
-        Button5 = New Button()
+        btnAddartifacts = New Button()
+        btnAddExhibits = New Button()
+        btnUsers = New Button()
         SuspendLayout()
         ' 
         ' btnLogin
@@ -57,41 +57,44 @@ Partial Class App
         Button2.Text = "View Exhibits"
         Button2.UseVisualStyleBackColor = True
         ' 
-        ' Button3
+        ' btnAddartifacts
         ' 
-        Button3.Location = New Point(12, 126)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(94, 23)
-        Button3.TabIndex = 3
-        Button3.Text = "Add Artifacts"
-        Button3.UseVisualStyleBackColor = True
+        btnAddartifacts.Enabled = False
+        btnAddartifacts.Location = New Point(12, 126)
+        btnAddartifacts.Name = "btnAddartifacts"
+        btnAddartifacts.Size = New Size(94, 23)
+        btnAddartifacts.TabIndex = 3
+        btnAddartifacts.Text = "Add Artifacts"
+        btnAddartifacts.UseVisualStyleBackColor = True
         ' 
-        ' Button4
+        ' btnAddExhibits
         ' 
-        Button4.Location = New Point(12, 155)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(94, 23)
-        Button4.TabIndex = 4
-        Button4.Text = "Add Exhibits"
-        Button4.UseVisualStyleBackColor = True
+        btnAddExhibits.Enabled = False
+        btnAddExhibits.Location = New Point(12, 155)
+        btnAddExhibits.Name = "btnAddExhibits"
+        btnAddExhibits.Size = New Size(94, 23)
+        btnAddExhibits.TabIndex = 4
+        btnAddExhibits.Text = "Add Exhibits"
+        btnAddExhibits.UseVisualStyleBackColor = True
         ' 
-        ' Button5
+        ' btnUsers
         ' 
-        Button5.Location = New Point(12, 184)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(94, 23)
-        Button5.TabIndex = 5
-        Button5.Text = "Users"
-        Button5.UseVisualStyleBackColor = True
+        btnUsers.Enabled = False
+        btnUsers.Location = New Point(12, 184)
+        btnUsers.Name = "btnUsers"
+        btnUsers.Size = New Size(94, 23)
+        btnUsers.TabIndex = 5
+        btnUsers.Text = "Users"
+        btnUsers.UseVisualStyleBackColor = True
         ' 
         ' App
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
-        Controls.Add(Button5)
-        Controls.Add(Button4)
-        Controls.Add(Button3)
+        Controls.Add(btnUsers)
+        Controls.Add(btnAddExhibits)
+        Controls.Add(btnAddartifacts)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(btnLogin)
@@ -103,8 +106,8 @@ Partial Class App
     Friend WithEvents btnLogin As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnAddartifacts As Button
+    Friend WithEvents btnAddExhibits As Button
+    Friend WithEvents btnUsers As Button
 
 End Class
