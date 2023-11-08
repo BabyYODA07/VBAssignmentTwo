@@ -23,8 +23,6 @@ Partial Class App
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         btnLogin = New Button()
-        Button1 = New Button()
-        Button2 = New Button()
         btnAddartifacts = New Button()
         btnAddExhibits = New Button()
         btnUsers = New Button()
@@ -39,48 +37,28 @@ Partial Class App
         btnLogin.Text = "Login"
         btnLogin.UseVisualStyleBackColor = True
         ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(12, 68)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(94, 23)
-        Button1.TabIndex = 1
-        Button1.Text = "View Artifacts"
-        Button1.UseVisualStyleBackColor = True
-        ' 
-        ' Button2
-        ' 
-        Button2.Location = New Point(12, 97)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(94, 23)
-        Button2.TabIndex = 2
-        Button2.Text = "View Exhibits"
-        Button2.UseVisualStyleBackColor = True
-        ' 
         ' btnAddartifacts
         ' 
-        btnAddartifacts.Enabled = False
-        btnAddartifacts.Location = New Point(12, 126)
+        btnAddartifacts.Location = New Point(12, 53)
         btnAddartifacts.Name = "btnAddartifacts"
         btnAddartifacts.Size = New Size(94, 23)
         btnAddartifacts.TabIndex = 3
-        btnAddartifacts.Text = "Add Artifacts"
+        btnAddartifacts.Text = "Artifacts"
         btnAddartifacts.UseVisualStyleBackColor = True
         ' 
         ' btnAddExhibits
         ' 
-        btnAddExhibits.Enabled = False
-        btnAddExhibits.Location = New Point(12, 155)
+        btnAddExhibits.Location = New Point(12, 82)
         btnAddExhibits.Name = "btnAddExhibits"
         btnAddExhibits.Size = New Size(94, 23)
         btnAddExhibits.TabIndex = 4
-        btnAddExhibits.Text = "Add Exhibits"
+        btnAddExhibits.Text = "Exhibits"
         btnAddExhibits.UseVisualStyleBackColor = True
         ' 
         ' btnUsers
         ' 
         btnUsers.Enabled = False
-        btnUsers.Location = New Point(12, 184)
+        btnUsers.Location = New Point(12, 111)
         btnUsers.Name = "btnUsers"
         btnUsers.Size = New Size(94, 23)
         btnUsers.TabIndex = 5
@@ -95,8 +73,6 @@ Partial Class App
         Controls.Add(btnUsers)
         Controls.Add(btnAddExhibits)
         Controls.Add(btnAddartifacts)
-        Controls.Add(Button2)
-        Controls.Add(Button1)
         Controls.Add(btnLogin)
         Name = "App"
         Text = "Form1"
@@ -104,8 +80,6 @@ Partial Class App
     End Sub
 
     Friend WithEvents btnLogin As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents btnAddartifacts As Button
     Friend WithEvents btnAddExhibits As Button
     Friend WithEvents btnUsers As Button

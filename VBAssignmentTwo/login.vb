@@ -1,6 +1,7 @@
-﻿Imports System.Data.OleDb
+﻿Imports System.Configuration
+Imports System.Data.OleDb
 Public Class login
-    Dim strConn As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=..\..\..\HistoricalArtifactManagement.accdb"
+    Dim strConn As String = ConfigurationManager.ConnectionStrings("MyConnString").ConnectionString 'Connection String
     Dim strQuery As String
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -36,15 +37,9 @@ Public Class login
             End Using
         End Using
 
-        'If txtUsername.Text = strusername And txtPassword.Text = strpassword Then
-
-        '    Try
-        '        My.Computer.FileSystem.WriteAllText(directoryPath, "Authenticated: True" & Environment.NewLine & "Duration: 1000", False)
-        '    Catch ex As Exception
-        '        System.IO.Directory.CreateDirectory(directoryPath)
-        '        My.Computer.FileSystem.WriteAllText(directoryPath, "Authenticated: True" & Environment.NewLine & "Duration: 1000", False)
-        '    End Try
-
     End Sub
 
+    Private Sub login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

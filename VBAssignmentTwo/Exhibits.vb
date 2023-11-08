@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 Imports System.Configuration
 
-Public Class Artifact
+Public Class AddArtifact
     Dim strConn As String = ConfigurationManager.ConnectionStrings("MyConnString").ConnectionString
     Dim strQuery As String
     Dim imgdir As String = "..\..\..\images\"
@@ -18,16 +18,14 @@ Public Class Artifact
 
     Sub UpdateButtonStates()
         btnAdd.Enabled = IsAdmin
-        btnBrowse.Enabled = IsAdmin
         btnCancel.Enabled = IsAdmin
         btnDelete.Enabled = IsAdmin
         btnUpdate.Enabled = IsAdmin
-        btnRemove.Enabled = IsAdmin
 
     End Sub
     Sub loadData()
         Dim imgpath As String
-        strQuery = "SELECT * From artifacts"
+        strQuery = "SELECT * From exhibits"
         Using conn As New OleDbConnection(strConn)
             Dim adpter As New OleDbDataAdapter(strQuery, conn)
             conn.Open()
@@ -36,9 +34,9 @@ Public Class Artifact
                 If reader.HasRows Then
                     While reader.Read()
                         txtID.Text = reader.GetValue(0)
-                        txtName.Text = reader.GetString(1)
-                        txtOrgin.Text = reader.GetString(2)
-                        txtHistory.Text = reader.GetString(3)
+                        txtTitle.Text = reader.GetString(1)
+                        txtLocation.Text = reader.GetString(2)
+                        txtDescription.Text = reader.GetString(3)
                         imgpath = reader.GetString(4)
 
                     End While
@@ -63,14 +61,14 @@ Public Class Artifact
 
     Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         txtID.Clear()
-        txtName.Clear()
-        txtOrgin.Clear()
-        txtHistory.Clear()
+        txtTitle.Clear()
+        txtLocation.Clear()
+        txtDescription.Clear()
         Me.Close()
     End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        strQuery = "DELETE from artifacts WHERE ArtifactID = @ArtifactID"
+        strQuery = "DELETE from exhibits WHERE ArtifactID = @ArtifactID"
         Using conn As New OleDbConnection(strConn)
             conn.Open()
             Using cmd As New OleDbCommand(strQuery, conn)
@@ -89,54 +87,33 @@ Public Class Artifact
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Using conn As New OleDbConnection(strConn)
-            strQuery = "INSERT INTO artifacts (ArtifactName, ArtifactOrigin, ArtifactHistoricalSignificance, ArtifactImages) VALUES (@ArtifactName, @ArtifactOrigin, @ArtifactHistoricalSignificance, @ArtifactImages)"
+            strQuery = "INSERT INTO exhibits (ArtifactName, ArtifactOrigin, ArtifactHistoricalSignificance, ArtifactImages) VALUES (@ArtifactName, @ArtifactOrigin, @ArtifactHistoricalSignificance, @ArtifactImages)"
             Using cmd As New OleDbCommand(strQuery, conn)
                 conn.Open()
-                cmd.Parameters.AddWithValue("@ArtifactName", txtName.Text)
-                cmd.Parameters.AddWithValue("@ArtifactOrigin", txtOrgin.Text)
-                cmd.Parameters.AddWithValue("@ArtifactHistoricalSignificance", txtHistory.Text)
-                cmd.Parameters.AddWithValue("@ArtifactImages", txtID.Text & txtName.Text & "." & filetype(PictureBox1.ImageLocation))
+                cmd.Parameters.AddWithValue("@ArtifactName", txtTitle.Text)
+                cmd.Parameters.AddWithValue("@ArtifactOrigin", txtLocation.Text)
+                cmd.Parameters.AddWithValue("@ArtifactHistoricalSignificance", txtDescription.Text)
                 cmd.ExecuteNonQuery()
             End Using
         End Using
-        savedir()
         loadData()
-        txtName.Clear()
-        txtOrgin.Clear()
-        txtHistory.Clear()
-        PictureBox1.ImageLocation = ""
-        txtName.Focus()
+        txtTitle.Clear()
+        txtLocation.Clear()
+        txtDescription.Clear()
+        txtTitle.Focus()
     End Sub
 
-    Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
-        Using ofd As New OpenFileDialog()
-            ofd.Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*"
-            If ofd.ShowDialog() = DialogResult.OK Then
-                PictureBox1.ImageLocation = ofd.FileName
-            End If
-        End Using
-    End Sub
 
-    Sub savedir()
-        If Not System.IO.Directory.Exists(imgdir) Then
-            System.IO.Directory.CreateDirectory(imgdir)
-        End If
-        PictureBox1.Image.Save(imgdir & txtID.Text & txtName.Text & "." & filetype(PictureBox1.ImageLocation))
-    End Sub
-    Private Sub btnCrop_Click(sender As Object, e As EventArgs) Handles btnCrop.Click
-
-    End Sub
 
     '//This Button Will Update the entry 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        strQuery = "UPDATE artifacts SET ArtifactName = @ArtifactName, ArtifactOrigin = @ArtifactOrigin, ArtifactHistoricalSignificance = @ArtifactHistoricalSignificance, ArtifactImages = @ArtifactImages WHERE ID = @ID"
+        strQuery = "UPDATE exhibits SET ArtifactName = @ArtifactName, ArtifactOrigin = @ArtifactOrigin, ArtifactHistoricalSignificance = @ArtifactHistoricalSignificance, ArtifactImages = @ArtifactImages WHERE ID = @ID"
         Using conn As New OleDbConnection(strConn)
             conn.Open()
             Using cmd As New OleDbCommand(strQuery, conn)
-                cmd.Parameters.AddWithValue("@ArtifactName", txtName.Text)
-                cmd.Parameters.AddWithValue("@ArtifactOrigin", txtOrgin.Text)
-                cmd.Parameters.AddWithValue("@ArtifactHistoricalSignificance", txtHistory.Text)
-                cmd.Parameters.AddWithValue("@ArtifactImages", txtID.Text & txtName.Text & "." & filetype(PictureBox1.ImageLocation))
+                cmd.Parameters.AddWithValue("@ArtifactName", txtTitle.Text)
+                cmd.Parameters.AddWithValue("@ArtifactOrigin", txtLocation.Text)
+                cmd.Parameters.AddWithValue("@ArtifactHistoricalSignificance", txtDescription.Text)
                 cmd.Parameters.AddWithValue("@ID", txtID.Text)
                 cmd.ExecuteNonQuery()
             End Using
@@ -148,15 +125,11 @@ Public Class Artifact
         If DataGridView1.SelectedRows.Count > 0 Then
             Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
             txtID.Text = selectedRow.Cells("ArtifactID").Value.ToString()
-            txtName.Text = selectedRow.Cells("ArtifactName").Value.ToString()
-            txtOrgin.Text = selectedRow.Cells("ArtifactOrigin").Value.ToString()
-            txtHistory.Text = selectedRow.Cells("ArtifactHistoricalSignificance").Value.ToString()
-            PictureBox1.ImageLocation = imgdir & selectedRow.Cells("ArtifactImages").Value.ToString()
+            txtTitle.Text = selectedRow.Cells("ArtifactName").Value.ToString()
+            txtLocation.Text = selectedRow.Cells("ArtifactOrigin").Value.ToString()
+            txtDescription.Text = selectedRow.Cells("ArtifactHistoricalSignificance").Value.ToString()
 
         End If
     End Sub
 
-    Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
-        PictureBox1.ImageLocation = ""
-    End Sub
 End Class
